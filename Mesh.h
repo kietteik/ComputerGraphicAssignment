@@ -1,3 +1,7 @@
+// --------------------------------------------------------------------------------------------
+//							MESH.H
+// --------------------------------------------------------------------------------------------
+
 #pragma once
 #if !defined (_MESH_CLASS)
 #define _MESH_CLASS
@@ -81,6 +85,14 @@ public:
 	void CreateGiaDo1(float R, float x1, float x2, float x3, float z1, float z2, float y);
 	void CreateGiaDo2(float R,float x1,float x2,float z1,float z2,float y);
 	void CreateTayNoi(float R,float x, float y);
+	void CreateFloorUnit(float x);
+	void CreateFloorUnitReflect(float x);
+	void DrawReflection(float opacity);
+
 };
 
 #endif
+
+// --------------------------------------------------------------------------------------------
+//							MESH.H
+// --------------------------------------------------------------------------------------------

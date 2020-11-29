@@ -1,4 +1,9 @@
-﻿#include "Mesh.h"
+﻿// --------------------------------------------------------------------------------------------
+//							MESH.CPP
+// --------------------------------------------------------------------------------------------
+
+
+#include "Mesh.h"
 #include <math.h>
 
 #define PI			3.1415926
@@ -868,6 +873,149 @@ void Mesh::CreateTayNoi(float R, float x, float y) {
 	this->CalculateFacesNorm();
 }
 
+void Mesh::CreateFloorUnit(float x){
+	int idx;
+	numVerts = 20;
+	pt = new Point3[numVerts];
+	pt[0].set(0, 0, 0);
+	pt[1].set(x/3, 0,0);
+	pt[2].set(2*x/3, 0, 0);
+	pt[3].set(x, 0, 0);
+	pt[4].set(0, 0, -x/3);
+	pt[5].set(0.5*x, 0, -0.5*x);
+	pt[6].set(0.8*x, 0, -0.4*x);
+	pt[7].set(x, 0, -x/3);
+	pt[8].set(0, 0, -2*x/3);
+	pt[9].set(0.4*x, 0, -0.8*x);
+	pt[10].set(0.9*x, 0, -0.7*x);
+	pt[11].set(x, 0, -2*x/3);
+	pt[12].set(0, 0, -x);
+	pt[13].set(x/3, 0, -x);
+	pt[14].set(2*x/3, 0, -x);
+	pt[15].set(x, 0, -x);
+	pt[16].set(0.7*x, 0, -0.9*x);
+	pt[17].set(0.75*x, 0, -0.75*x);
+
+	numFaces = 5;
+	face = new Face[numFaces];
+	idx = 0;
+
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 1;
+	face[idx].vert[1].vertIndex = 2;
+	face[idx].vert[2].vertIndex = 6;
+	face[idx].vert[3].vertIndex = 5;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 4;
+	face[idx].vert[1].vertIndex = 5;
+	face[idx].vert[2].vertIndex = 9;
+	face[idx].vert[3].vertIndex = 8;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 6;
+	face[idx].vert[1].vertIndex = 7;
+	face[idx].vert[2].vertIndex = 11;
+	face[idx].vert[3].vertIndex = 10;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 9;
+	face[idx].vert[1].vertIndex = 16;
+	face[idx].vert[2].vertIndex = 14;
+	face[idx].vert[3].vertIndex = 13;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 17;
+	face[idx].vert[1].vertIndex = 10;
+	face[idx].vert[2].vertIndex = 15;
+	face[idx].vert[3].vertIndex = 16;
+	idx++;
+
+	CalculateFacesNorm();
+}
+
+void Mesh::CreateFloorUnitReflect(float x){
+	int idx;
+	numVerts = 20;
+	pt = new Point3[numVerts];
+	pt[0].set(0, 0, 0);
+	pt[1].set(x/3, 0,0);
+	pt[2].set(2*x/3, 0, 0);
+	pt[3].set(x, 0, 0);
+	pt[4].set(0, 0, -x/3);
+	pt[5].set(0.5*x, 0, -0.5*x);
+	pt[6].set(0.8*x, 0, -0.4*x);
+	pt[7].set(x, 0, -x/3);
+	pt[8].set(0, 0, -2*x/3);
+	pt[9].set(0.4*x, 0, -0.8*x);
+	pt[10].set(0.9*x, 0, -0.7*x);
+	pt[11].set(x, 0, -2*x/3);
+	pt[12].set(0, 0, -x);
+	pt[13].set(x/3, 0, -x);
+	pt[14].set(2*x/3, 0, -x);
+	pt[15].set(x, 0, -x);
+	pt[16].set(0.7*x, 0, -0.9*x);
+	pt[17].set(0.75*x, 0, -0.75*x);
+
+	numFaces = 7;
+	face = new Face[numFaces];
+	idx = 0;
+
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 0;
+	face[idx].vert[1].vertIndex = 1;
+	face[idx].vert[2].vertIndex = 5;
+	face[idx].vert[3].vertIndex = 4;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 2;
+	face[idx].vert[1].vertIndex = 3;
+	face[idx].vert[2].vertIndex = 7;
+	face[idx].vert[3].vertIndex = 6;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 6;
+	face[idx].vert[1].vertIndex = 10;
+	face[idx].vert[2].vertIndex = 17;
+	face[idx].vert[3].vertIndex = 5;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 5;
+	face[idx].vert[1].vertIndex = 17;
+	face[idx].vert[2].vertIndex = 16;
+	face[idx].vert[3].vertIndex = 9;
+	idx++;
+	face[idx].nVerts = 3;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 10;
+	face[idx].vert[1].vertIndex = 11;
+	face[idx].vert[2].vertIndex = 15;
+	idx++;
+	face[idx].nVerts = 3;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 16;
+	face[idx].vert[1].vertIndex = 15;
+	face[idx].vert[2].vertIndex = 14;
+	idx++;
+	face[idx].nVerts = 4;
+	face[idx].vert = new VertexID[face[idx].nVerts];
+	face[idx].vert[0].vertIndex = 8;
+	face[idx].vert[1].vertIndex = 9;
+	face[idx].vert[2].vertIndex = 13;
+	face[idx].vert[3].vertIndex = 12;
+	idx++;
+
+	CalculateFacesNorm();
+}
 
 void Mesh::DrawWireframe()
 {
@@ -896,6 +1044,22 @@ void Mesh::Draw() {
 		}
 		glEnd();
 	}
+}
+
+void Mesh::DrawReflection(float opacity) {
+	glDisable(GL_LIGHTING);
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+	for (int f = 0; f < numFaces; f++){
+		glBegin(GL_POLYGON);
+		glColor4f(200.0/255, 200.0/255, 1, opacity);
+		for (int v = 0; v < face[f].nVerts; v++){
+			int		iv = face[f].vert[v].vertIndex;
+			glNormal3f(face[f].facenorm.x, face[f].facenorm.y, face[f].facenorm.z);
+			glVertex3f(pt[iv].x, pt[iv].y, pt[iv].z);
+		}
+		glEnd();
+	}
+	glEnable(GL_LIGHTING);
 }
 
 void Mesh::DrawColor()
@@ -972,23 +1136,7 @@ void Mesh::CalculateFacesNorm(){
 	}
 }
 
-// void Mesh::CalculateFacesNorm() {
-// 	float mx, my, mz;
-// 	int idx, next;
-// 	for (int f = 0; f < numFaces; f++) {
-// 		mx = 0;
-// 		my = 0;
-// 		mz = 0;
-// 		for (int v = 0; v < face[f].nVerts; v++) {
-// 			idx = v;
-// 			next = (idx + 1) % face[f].nVerts;
-// 			int p1 = face[f].vert[idx].vertIndex;
-// 			int p2 = face[f].vert[next].vertIndex;
-// 			mx = mx + (pt[p1].y - pt[p2].y) * (pt[p1].z + pt[p2].z);
-// 			my = my + (pt[p1].z - pt[p2].z) * (pt[p1].x + pt[p2].x);
-// 			mz = mz + (pt[p1].x - pt[p2].x) * (pt[p1].y + pt[p2].y);
-// 		}
-// 		face[f].facenorm.set(mx, my, mz);
-// 		face[f].facenorm.normalize();
-// 	}
-// }
+// --------------------------------------------------------------------------------------------
+//							MESH.CPP
+// --------------------------------------------------------------------------------------------
+
