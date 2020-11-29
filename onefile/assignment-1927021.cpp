@@ -6,7 +6,9 @@
 #if !defined (_SUPPORT_CLASS)
 #define _SUPPORT_CLASS
 
-#include "GLUT/glut.h"
+//#include "GLUT/glut.h"
+#include <gl.h>
+#include <glut.h>
 
 class Point3
 {
